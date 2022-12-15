@@ -24,18 +24,16 @@ if (!function_exists('get_template')) {
     {
         $messageTemplates = MessageTemplates::where('template',$msg)->first('message');
         if (!$messageTemplates){
-            $result = [
+            return [
                 'status' => 'error',
                 'data' => 'data not found',
             ];
         }
 
-        $result = [
+        return [
             'status' => 'success',
             'data' => $messageTemplates,
         ];
-
-        return $result;
     }
 }
 
